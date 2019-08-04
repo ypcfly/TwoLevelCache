@@ -61,10 +61,10 @@ public class CaffeineRedisCacheConfig {
                 .serializeValuesWith(jsonSerializationPair);
 
         // 设置过期时间
-        redisCacheConfiguration.entryTtl(Duration.ofSeconds(expireSecond));
+        redisCacheConfiguration = redisCacheConfiguration.entryTtl(Duration.ofSeconds(expireSecond));
         // 是否缓存null值
         if (!customCacheProperties.isCacheNullValues()) {
-            redisCacheConfiguration.disableCachingNullValues();
+            redisCacheConfiguration = redisCacheConfiguration.disableCachingNullValues();
         }
 
         RedisCacheManager redisCacheManager = new RedisCacheManager(redisCacheWriter,redisCacheConfiguration);

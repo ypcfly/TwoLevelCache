@@ -88,9 +88,13 @@ public class CaffeineRedisCache implements Cache {
 
     @Override
     public void put(Object key, Object value) {
-        log.info(">>>> put method,key={},value={} <<<<",key,value);
-        firstLevel.put(key,value);
-        secondLevel.put(key,value);
+        try {
+            log.info(">>>> put method,key={},value={} <<<<",key,value);
+            firstLevel.put(key,value);
+            secondLevel.put(key,value);
+        } catch (Exception e) {
+            log.error(">>>> error message={} <<<<",e.getMessage());
+        }
     }
 
     @Override
