@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "t_user")
 //@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY)
-public class User implements Serializable {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @JsonProperty
